@@ -1,6 +1,6 @@
 
-import {company} from"./configuration1.js"
-import {year} from "./configuration2.js"
+import {company} from"./configuration.js"
+import {year} from "./configuration.js"
 
 console.log(company,year)
 
