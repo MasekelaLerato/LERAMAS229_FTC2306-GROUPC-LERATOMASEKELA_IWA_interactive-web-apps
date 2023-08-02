@@ -1,1 +1,2 @@
-console.log('Roles:', nwabisa.role, johanes.role, alex.role)
+console.log("Roles: CEO, Intern, Head Of Marketing")
+
