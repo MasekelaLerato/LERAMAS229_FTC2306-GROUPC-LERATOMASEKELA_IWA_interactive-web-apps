@@ -8,7 +8,7 @@ const shirts = 150 * 0;
 const batteries= 35 * 2;
 const pens = 5 * 0;
 
-let location ='RSA';
+let location_1 ='RSA';
 const customers = 1;
 let shipping = 400;
 let currency = 'R';
@@ -19,7 +19,7 @@ if (location === 'NAM'){ shipping = 600 && currency == 'R'} else {
     shipping ===800
 }
 
-if (shoes + batteries + pens + shirts >= 1000 && location === 'RSA') {
+if (shoes + batteries + pens + shirts + toys >= 1000 && location === 'RSA') {
     shipping = 0;
   }
 
@@ -35,7 +35,7 @@ if (shipping === 0 && customers !== 1) {
 if (location === 'NK') {
     console.log(BANNED_WARNING);
   } else {
-    console.log('price', currency, shoes + batteries + pens + shirts + shipping);
+    console.log('price', currency, shoes + batteries + pens + shirts + toys + shipping);
   }
 
 
