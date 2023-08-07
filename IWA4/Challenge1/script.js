@@ -1,5 +1,5 @@
 let date = 2050
-const status= 'student'
+let status= 'student'
 let count = 0
 
 if (date == 2050) {
@@ -21,6 +21,8 @@ if (date == 2050) {
     date = 'December'
 	console.log(date, 'Day of Reconciliation')
 	 count = count + 3 //count+=3
+
+	 status = 'parent'
 
 	if (status == "parent") {
 	  console.log(date, 'Christmas Day')
