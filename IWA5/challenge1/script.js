@@ -13,17 +13,21 @@ const customers = 1;
 let shipping = 400;
 let currency = 'R';
 
-if (location === 'RSA') { shipping = 400 && currency == 'R' }
+if (location_1 === 'RSA') { shipping = 400 && currency == 'R' 
 
-if (location === 'NAM'){ shipping = 600 && currency == 'R'} else {
-    shipping ===800
+
+}
+ 
+
+if (location_1 === 'NAM'){ shipping = 600 && currency == 'R'} else {
+    shipping =800
 }
 
-if (shoes + batteries + pens + shirts + toys >= 1000 && location === 'RSA') {
+if (shoes + batteries + pens + shirts + toys >= 1000 && location_1 === 'RSA') {
     shipping = 0;
   }
 
-if (location === 'NAM' && customers < 2) {
+if (location_1 === 'NAM' && customers < 2) {
     shipping = 0;
   }
 
@@ -32,7 +36,7 @@ if (shipping === 0 && customers !== 1) {
   }
 
 
-if (location === 'NK') {
+if (location_1 === 'NK') {
     console.log(BANNED_WARNING);
   } else {
     console.log('price', currency, shoes + batteries + pens + shirts + toys + shipping);
