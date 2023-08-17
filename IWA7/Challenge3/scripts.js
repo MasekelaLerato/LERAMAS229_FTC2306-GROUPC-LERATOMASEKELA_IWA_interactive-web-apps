@@ -13,7 +13,7 @@ const divider = '----------------------------------'
 const owed = Math.abs(leoBalance) + Math.abs(sarahBalance)
 const leo = `${leoName}  ${leoSurname.trim()}  (Owed: R ${Math.abs(leoBalance).toFixed(2)})`
 const sarah = `${sarahName.trim()}  ${sarahSurname} (Owed: R ${Math.abs(sarahBalance).toFixed(2)})`
-const total = `Total amount owed: R ${owed.toFixed(2)}`
+const total = `Total amount owed: R ${owed.toLocaleString(undefined).replace(/,/g, ' ')}`;
 const result =   leo + '\n' + sarah + '\n' + divider + '\n' +  total + '\n' +   divider
 
 console.log(result) 
