@@ -64,34 +64,41 @@ const data = {
 
 // Only edit below this comment
 
-const createHtml = (athlete) => {
-    const {firstName, surname, id, races} = athlete;
-    const latestRace = races[races.length - 1];
-  
-    const fragment = document.createDocumentFragment();
-  
-    const title = document.createElement('h2');
-    title.textContent = id;
-    fragment.appendChild(title);
-  
-    const list = document.createElement('dl');
-  
-    const date = new Date(latestRace.date);
-    const day = date.getDate();
-    const month = MONTHS[date.getmonth()];
-    const year = date.getFullyear();
-  
-    first, second, third, fourth = timeAsArray;
-    total = first + second + third + fourth;
-  
-    
-    const total = latestRace.time.reduce((acc, val) => acc + val, 0);
-    const hours = Math.floor(total / 60);
-    const minutes = total % 60;
-    
-    list.innerHTML = /* html */ `
+/*The athlete's latest race is extracted from the races array.
+ */
+
+const createHtml = (athleteId) => {
+  // used atheteId instead of redeclaring athlete
+  const athlete = data.response.data[athleteId];
+  const races = athlete.races;
+  const latestRace = races[races.length - 1];
+
+  const fragment = document.createDocumentFragment();
+
+  const title = document.createElement("h2"); //An <h2> element is created to display the athlete's ID.
+  title.textContent = athlete.id;
+  fragment.appendChild(title);
+
+  const list = document.createElement("dl"); // A <dl> (description list) element is created to structure the athlete's information.
+
+  const latestDate = new Date(latestRace.date);
+  const day = latestDate.getDate();
+  const month = MONTHS[latestDate.getMonth()];
+  const year = latestDate.getFullYear();
+
+  //The athlete's latest race date is parsed to extract day, month, and year information.
+  //The total lap time for the latest race is calculated by summing up the lap times
+
+  const totalLapTime = latestRace.time.reduce(
+    (acc, lapTime) => acc + lapTime,
+    0
+  );
+  const hours = Math.floor(totalLapTime / 60);
+  const minutes = totalLapTime % 60;
+
+  list.innerHTML = /* html */ `
     <dt>Athlete</dt>
-    <dd>${firstName } ${surname}</dd>
+    <dd>${athlete.firstName} ${athlete.surname}</dd>
 
     <dt>Total Races</dt>
     <dd>${races.length}</dd>
@@ -100,13 +107,17 @@ const createHtml = (athlete) => {
     <dd>${day} ${month} ${year}</dd>
 
     <dt>Total Time (Latest)</dt>
-    <dd>${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}</dd>
+    <dd>${hours.toString().padStart(2, "0")}:${minutes
+    .toString()
+    .padStart(2, "0")}</dd>
   `;
-
 
   fragment.appendChild(list);
   return fragment;
-}
-const { NM372, SV782 } = data.response.data;
-document.querySelector(`[data-athlete="${NM372.id}"]`).appendChild(createHtml(NM372));
-document.querySelector(`[data-athlete="${SV782.id}"]`).appendChild(createHtml(SV782));
+};
+
+const NM372Section = document.querySelector('[data-athlete="NM372"]');
+const SV782Section = document.querySelector('[data-athlete="SV782"]');
+
+NM372Section.appendChild(createHtml("NM372"));
+SV782Section.appendChild(createHtml("SV782"));
