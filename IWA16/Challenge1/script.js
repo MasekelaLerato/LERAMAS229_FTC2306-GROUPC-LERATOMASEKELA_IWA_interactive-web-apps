@@ -70,7 +70,7 @@ const data = {
 const createHtml = (athleteId) => {
   // used atheteId instead of redeclaring athlete
   const athlete = data.response.data[athleteId];
-  const races = athlete.races;
+  const races = athlete.races; //Properly declared using const 
   const latestRace = races[races.length - 1];
 
   const fragment = document.createDocumentFragment();

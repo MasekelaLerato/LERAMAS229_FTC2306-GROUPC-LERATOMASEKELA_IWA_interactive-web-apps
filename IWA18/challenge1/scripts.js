@@ -1,3 +1,5 @@
+import { moveToColumn,html,updateDraggingHtml,createOrderHtml } from "./view";
+
 /**
  * A handler that fires when a user drags over any element inside a column. In
  * order to determine which column the user is dragging over the entire event
@@ -23,40 +25,52 @@ const handleDragOver = (event) => {
     }
 
     if (!column) return
-    updateDragging({ over: column })
-    updateDraggingHtml({ over: column })
+   updateDraggingHtml({ over: column })
 }
 
 
 const handleDragStart = (event) => {
-   
+    event.preventDefault();
 
 }
 const handleDragEnd = (event) => {
-    
+    event.preventDefault();
 
 }
 const handleHelpToggle = (event) => {
+//     event.preventDefault();
+//     const helpOverlay = document.querySelector('[data-help-overlay]');
+//  if (helpOverlay.open) {
+//     helpOverlay.close();
+//   } else {
+//     helpOverlay.showModal();
+//   }
+};
 
-   
-}
+
+
+
 const handleAddToggle = (event) => {
-
+    event.preventDefault();
 
 }
 const handleAddSubmit = (event) => {
-   
+    event.preventDefault();
 }
 const handleEditToggle = (event) => {
-
+    event.preventDefault();
 
 }
+
 const handleEditSubmit = (event) => {
-
+    event.preventDefault();
 
 }
-const handleDelete = (event) => {
 
+
+
+const handleDelete = (event) => {
+    event.preventDefault();
 
 }
 
